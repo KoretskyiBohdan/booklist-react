@@ -1,3 +1,704 @@
 {
-  "books": []
+  "books": [
+    {
+      "id": 1,
+      "name": "Regrant",
+      "price": 748,
+      "category": "Comedy|Drama|Romance",
+      "description": "Pseudotumor cerebri"
+    },
+    {
+      "id": 2,
+      "name": "Daltfresh",
+      "price": 111,
+      "category": "Action|Adventure|Drama|War",
+      "description": "Tox eff corrosive aromat"
+    },
+    {
+      "id": 3,
+      "name": "Konklux",
+      "price": 897,
+      "category": "Drama",
+      "description": "Retain plac NOS-postpart"
+    },
+    {
+      "id": 4,
+      "name": "Duobam",
+      "price": 799,
+      "category": "Adventure|Animation|Comedy",
+      "description": "Cellulitis, site NEC"
+    },
+    {
+      "id": 5,
+      "name": "It",
+      "price": 299,
+      "category": "Drama",
+      "description": "Mal neo cerebral mening"
+    },
+    {
+      "id": 6,
+      "name": "Namfix",
+      "price": 14,
+      "category": "Comedy|Drama",
+      "description": "N-traf brd/alit-st car"
+    },
+    {
+      "id": 7,
+      "name": "Viva",
+      "price": 168,
+      "category": "Comedy",
+      "description": "Hyperventilation"
+    },
+    {
+      "id": 8,
+      "name": "Cardify",
+      "price": 531,
+      "category": "Action|Thriller",
+      "description": "2nd degree sunburn"
+    },
+    {
+      "id": 9,
+      "name": "Veribet",
+      "price": 127,
+      "category": "Comedy",
+      "description": "Quad gest 2+ monoamniotc"
+    },
+    {
+      "id": 10,
+      "name": "Bitchip",
+      "price": 251,
+      "category": "Horror|Thriller",
+      "description": "Asy bacteruria-del w p/p"
+    },
+    {
+      "id": 11,
+      "name": "Zathin",
+      "price": 231,
+      "category": "Documentary|Musical",
+      "description": "Pap smear anus w LGSIL"
+    },
+    {
+      "id": 12,
+      "name": "Tin",
+      "price": 129,
+      "category": "Documentary",
+      "description": "Pulmon embol NEC-antepar"
+    },
+    {
+      "id": 13,
+      "name": "Trippledex",
+      "price": 674,
+      "category": "Documentary",
+      "description": "Acq ankle-foot def NOS"
+    },
+    {
+      "id": 14,
+      "name": "Flowdesk",
+      "price": 872,
+      "category": "Drama",
+      "description": "Ben carcinoid asc colon"
+    },
+    {
+      "id": 15,
+      "name": "Veribet",
+      "price": 650,
+      "category": "Drama",
+      "description": "Salmonella infection NEC"
+    },
+    {
+      "id": 16,
+      "name": "Asoka",
+      "price": 94,
+      "category": "Drama",
+      "description": "Anal sphincter tear-del"
+    },
+    {
+      "id": 17,
+      "name": "Daltfresh",
+      "price": 865,
+      "category": "Drama",
+      "description": "Atrophy of vulva"
+    },
+    {
+      "id": 18,
+      "name": "Bitchip",
+      "price": 576,
+      "category": "Crime|Drama|Mystery",
+      "description": "Triplets w fet loss-unsp"
+    },
+    {
+      "id": 19,
+      "name": "Holdlamis",
+      "price": 712,
+      "category": "Action|Adventure|Drama",
+      "description": "Cong cntrl hypovent synd"
+    },
+    {
+      "id": 20,
+      "name": "Temp",
+      "price": 812,
+      "category": "Adventure|Comedy|Drama|Romance",
+      "description": "Op skl fx NEC/br inj NEC"
+    },
+    {
+      "id": 21,
+      "name": "Voltsillam",
+      "price": 100,
+      "category": "Action|Crime|Drama",
+      "description": "Impaired renal funct NOS"
+    },
+    {
+      "id": 22,
+      "name": "Zathin",
+      "price": 104,
+      "category": "Action|Crime|Drama",
+      "description": "Benign neoplasm eye NEC"
+    },
+    {
+      "id": 23,
+      "name": "Otcom",
+      "price": 217,
+      "category": "Horror",
+      "description": "Obstruct/fet malpos-unsp"
+    },
+    {
+      "id": 24,
+      "name": "Viva",
+      "price": 791,
+      "category": "Comedy",
+      "description": "Pelvic organ inj NOS-opn"
+    },
+    {
+      "id": 25,
+      "name": "Tin",
+      "price": 56,
+      "category": "Documentary",
+      "description": "Suprv elderly primigrav"
+    },
+    {
+      "id": 26,
+      "name": "Bitchip",
+      "price": 691,
+      "category": "(no genres listed)",
+      "description": "Crushing injury knee"
+    },
+    {
+      "id": 27,
+      "name": "Subin",
+      "price": 568,
+      "category": "Comedy",
+      "description": "Prim pr TB NEC-exam unkn"
+    },
+    {
+      "id": 28,
+      "name": "Hatity",
+      "price": 812,
+      "category": "Documentary",
+      "description": "Hyperaldosteronism NOS"
+    },
+    {
+      "id": 29,
+      "name": "Transcof",
+      "price": 731,
+      "category": "Action|Crime",
+      "description": "Keratitis NEC"
+    },
+    {
+      "id": 30,
+      "name": "Home Ing",
+      "price": 610,
+      "category": "Horror",
+      "description": "Spin bif w hydrceph-dors"
+    },
+    {
+      "id": 31,
+      "name": "Asoka",
+      "price": 595,
+      "category": "Animation|Musical",
+      "description": "Cellulitis of digit NOS"
+    },
+    {
+      "id": 32,
+      "name": "Overhold",
+      "price": 880,
+      "category": "Drama",
+      "description": "Morbid obesity"
+    },
+    {
+      "id": 33,
+      "name": "Stim",
+      "price": 869,
+      "category": "Drama",
+      "description": "Rupture achilles tendon"
+    },
+    {
+      "id": 34,
+      "name": "Quo Lux",
+      "price": 51,
+      "category": "Comedy|Drama",
+      "description": "Overhang dental restore"
+    },
+    {
+      "id": 35,
+      "name": "Duobam",
+      "price": 780,
+      "category": "Comedy|Thriller",
+      "description": "Arthropathy NOS-forearm"
+    },
+    {
+      "id": 36,
+      "name": "Solarbreeze",
+      "price": 356,
+      "category": "Comedy",
+      "description": "Mal neo bladder-lateral"
+    },
+    {
+      "id": 37,
+      "name": "Overhold",
+      "price": 437,
+      "category": "Crime|Drama|Mystery|Thriller",
+      "description": "Ear piercing"
+    },
+    {
+      "id": 38,
+      "name": "Tempsoft",
+      "price": 704,
+      "category": "Action|Drama|Thriller",
+      "description": "Inj abdominal vessel NOS"
+    },
+    {
+      "id": 39,
+      "name": "Stronghold",
+      "price": 457,
+      "category": "Drama|War",
+      "description": "Mch cmp autm mplnt dfbrl"
+    },
+    {
+      "id": 40,
+      "name": "Flowdesk",
+      "price": 59,
+      "category": "Drama|Romance",
+      "description": "Tear lat menisc knee-cur"
+    },
+    {
+      "id": 41,
+      "name": "Ronstring",
+      "price": 888,
+      "category": "Crime|Thriller",
+      "description": "Aseptic necrosis femur"
+    },
+    {
+      "id": 42,
+      "name": "Rank",
+      "price": 235,
+      "category": "Horror|Mystery|Thriller",
+      "description": "War inj:fragments NEC"
+    },
+    {
+      "id": 43,
+      "name": "Greenlam",
+      "price": 398,
+      "category": "Comedy",
+      "description": "Voyeurism"
+    },
+    {
+      "id": 44,
+      "name": "Y-find",
+      "price": 547,
+      "category": "Crime|Mystery|Thriller",
+      "description": "Hirschsprung's disease"
+    },
+    {
+      "id": 45,
+      "name": "Otcom",
+      "price": 760,
+      "category": "Action|Crime|Drama|Thriller",
+      "description": "Other dyschromia"
+    },
+    {
+      "id": 46,
+      "name": "Zontrax",
+      "price": 653,
+      "category": "Comedy|Drama|Romance",
+      "description": "Bone disorder-del w p/p"
+    },
+    {
+      "id": 47,
+      "name": "Latlux",
+      "price": 677,
+      "category": "Action|Thriller",
+      "description": "Shldr/upper arm inj NOS"
+    },
+    {
+      "id": 48,
+      "name": "Zoolab",
+      "price": 614,
+      "category": "Drama",
+      "description": "Cl skull vlt fx-brf coma"
+    },
+    {
+      "id": 49,
+      "name": "Otcom",
+      "price": 184,
+      "category": "Documentary",
+      "description": "Resp TB NEC-exam unkn"
+    },
+    {
+      "id": 50,
+      "name": "Prodder",
+      "price": 60,
+      "category": "Crime|Drama|Mystery",
+      "description": "Tubrcloma brain-no exam"
+    },
+    {
+      "id": 51,
+      "name": "Bitwolf",
+      "price": 725,
+      "category": "Comedy|Sci-Fi",
+      "description": "Ben neo lacrimal gland"
+    },
+    {
+      "id": 52,
+      "name": "Lotstring",
+      "price": 32,
+      "category": "Drama",
+      "description": "Oth symptm urinary systm"
+    },
+    {
+      "id": 53,
+      "name": "Stronghold",
+      "price": 649,
+      "category": "Horror|Thriller",
+      "description": "Cl skl fx NEC-proln coma"
+    },
+    {
+      "id": 54,
+      "name": "Zathin",
+      "price": 547,
+      "category": "Action|Crime",
+      "description": "Legal abor w hemorr-unsp"
+    },
+    {
+      "id": 55,
+      "name": "Daltfresh",
+      "price": 469,
+      "category": "Horror",
+      "description": "Assault - air gun"
+    },
+    {
+      "id": 56,
+      "name": "Bigtax",
+      "price": 99,
+      "category": "Comedy|Drama|Romance",
+      "description": "Ac kidny fail, tubr necr"
+    },
+    {
+      "id": 57,
+      "name": "Bamity",
+      "price": 248,
+      "category": "Comedy|Drama|Romance",
+      "description": "Hx of GI malignancy NOS"
+    },
+    {
+      "id": 58,
+      "name": "Sub-Ex",
+      "price": 458,
+      "category": "Action|Crime|Thriller",
+      "description": "Neural hear loss, unilat"
+    },
+    {
+      "id": 59,
+      "name": "Flowdesk",
+      "price": 555,
+      "category": "Crime|Drama|Thriller",
+      "description": "Malig melanoma skin NEC"
+    },
+    {
+      "id": 60,
+      "name": "Y-find",
+      "price": 449,
+      "category": "Drama",
+      "description": "Op skl base fx/cereb lac"
+    },
+    {
+      "id": 61,
+      "name": "Lotstring",
+      "price": 262,
+      "category": "Crime|Drama|Mystery",
+      "description": "Inadequate housing"
+    },
+    {
+      "id": 62,
+      "name": "Fix San",
+      "price": 602,
+      "category": "Crime|Mystery",
+      "description": "Terrorism, firearms"
+    },
+    {
+      "id": 63,
+      "name": "Bitwolf",
+      "price": 819,
+      "category": "Action|Animation|Children|Crime",
+      "description": "Chronic dacryocystitis"
+    },
+    {
+      "id": 64,
+      "name": "Otcom",
+      "price": 108,
+      "category": "Action|Comedy|Romance|Western",
+      "description": "Inf arthrit NOS-pelvis"
+    },
+    {
+      "id": 65,
+      "name": "Aerified",
+      "price": 367,
+      "category": "Drama|Thriller",
+      "description": "Sprain carpometacarpal"
+    },
+    {
+      "id": 66,
+      "name": "Solarbreeze",
+      "price": 452,
+      "category": "Musical",
+      "description": "Cutaneous schistosoma"
+    },
+    {
+      "id": 67,
+      "name": "Domainer",
+      "price": 302,
+      "category": "Drama|Western",
+      "description": "RR acc NEC-person NEC"
+    },
+    {
+      "id": 68,
+      "name": "Fixflex",
+      "price": 129,
+      "category": "Documentary",
+      "description": "Pulmon TB NEC-micro dx"
+    },
+    {
+      "id": 69,
+      "name": "Ronstring",
+      "price": 731,
+      "category": "Adventure",
+      "description": "Endomyocardial fibrosis"
+    },
+    {
+      "id": 70,
+      "name": "Zaam-Dox",
+      "price": 353,
+      "category": "Drama|Fantasy|Romance",
+      "description": "Adv eff analgesics NEC"
+    },
+    {
+      "id": 71,
+      "name": "Mat Lam Tam",
+      "price": 167,
+      "category": "Thriller",
+      "description": "Undet pois-med agnt NOS"
+    },
+    {
+      "id": 72,
+      "name": "Y-find",
+      "price": 737,
+      "category": "Crime|Drama",
+      "description": "Diastolc hrt failure NOS"
+    },
+    {
+      "id": 73,
+      "name": "Duobam",
+      "price": 168,
+      "category": "Drama",
+      "description": "Left bb block NEC"
+    },
+    {
+      "id": 74,
+      "name": "Bigtax",
+      "price": 176,
+      "category": "Drama",
+      "description": "Cornea memb change NOS"
+    },
+    {
+      "id": 75,
+      "name": "Bigtax",
+      "price": 196,
+      "category": "Action|Crime|Western",
+      "description": "Open skull fracture NEC"
+    },
+    {
+      "id": 76,
+      "name": "Keylex",
+      "price": 733,
+      "category": "Comedy",
+      "description": "Benign neo corpus uteri"
+    },
+    {
+      "id": 77,
+      "name": "Bitchip",
+      "price": 672,
+      "category": "Horror",
+      "description": "Loc osteoarth NOS-l/leg"
+    },
+    {
+      "id": 78,
+      "name": "Pannier",
+      "price": 387,
+      "category": "Adventure|Romance|IMAX",
+      "description": "Bariatric surg stat-del"
+    },
+    {
+      "id": 79,
+      "name": "Cookley",
+      "price": 437,
+      "category": "Horror|Sci-Fi|Thriller",
+      "description": "Cl skl vlt fx-proln coma"
+    },
+    {
+      "id": 80,
+      "name": "Viva",
+      "price": 507,
+      "category": "Drama",
+      "description": "Twin, mate sb-before adm"
+    },
+    {
+      "id": 81,
+      "name": "Cardguard",
+      "price": 814,
+      "category": "Action|Drama",
+      "description": "Abdmnal mass lft up quad"
+    },
+    {
+      "id": 82,
+      "name": "Zontrax",
+      "price": 254,
+      "category": "Comedy|Horror",
+      "description": "Spon ab w metab dis-inc"
+    },
+    {
+      "id": 83,
+      "name": "Zamit",
+      "price": 466,
+      "category": "Drama",
+      "description": "Osteodystrophy NOS"
+    },
+    {
+      "id": 84,
+      "name": "Duobam",
+      "price": 662,
+      "category": "Action|Comedy",
+      "description": "Periapical absc w sinus"
+    },
+    {
+      "id": 85,
+      "name": "Opela",
+      "price": 806,
+      "category": "Comedy|Horror|Thriller",
+      "description": "Obstruction gallbladder"
+    },
+    {
+      "id": 86,
+      "name": "Temp",
+      "price": 752,
+      "category": "Comedy|Drama|Romance|War",
+      "description": "Sec malig neo urin NEC"
+    },
+    {
+      "id": 87,
+      "name": "Lotstring",
+      "price": 8,
+      "category": "Animation|Fantasy|Thriller",
+      "description": "Torus fx radius/ulna-clo"
+    },
+    {
+      "id": 88,
+      "name": "Flowdesk",
+      "price": 402,
+      "category": "Crime|Drama|Mystery|Thriller",
+      "description": "Old disrupt post cruciat"
+    },
+    {
+      "id": 89,
+      "name": "Zaam-Dox",
+      "price": 317,
+      "category": "Drama",
+      "description": "TB of joint NEC-histo dx"
+    },
+    {
+      "id": 90,
+      "name": "Subin",
+      "price": 117,
+      "category": "Drama",
+      "description": "Cholesteatoma extern ear"
+    },
+    {
+      "id": 91,
+      "name": "Biodex",
+      "price": 526,
+      "category": "Drama|Romance",
+      "description": "Ft/adj xtrcorp dial cath"
+    },
+    {
+      "id": 92,
+      "name": "Otcom",
+      "price": 617,
+      "category": "Drama",
+      "description": "Neurohypophysis dis NEC"
+    },
+    {
+      "id": 93,
+      "name": "Wrapsafe",
+      "price": 203,
+      "category": "Comedy|Fantasy",
+      "description": "Abort NOS w pel inf-inc"
+    },
+    {
+      "id": 94,
+      "name": "Latlux",
+      "price": 797,
+      "category": "Action|Crime|Mystery|Thriller",
+      "description": "Opn cort contu-prol coma"
+    },
+    {
+      "id": 95,
+      "name": "Ronstring",
+      "price": 424,
+      "category": "Drama|Fantasy|War",
+      "description": "Climact arthritis-l/leg"
+    },
+    {
+      "id": 96,
+      "name": "Biodex",
+      "price": 266,
+      "category": "Drama|Romance",
+      "description": "TB lung infiltr-micro dx"
+    },
+    {
+      "id": 97,
+      "name": "Trippledex",
+      "price": 546,
+      "category": "Comedy|Drama",
+      "description": "Hyp ht/kd NOS I-IV w hf"
+    },
+    {
+      "id": 98,
+      "name": "Tresom",
+      "price": 863,
+      "category": "Drama",
+      "description": "Joint dis NEC-l/leg"
+    },
+    {
+      "id": 99,
+      "name": "Asoka",
+      "price": 384,
+      "category": "Romance|Western",
+      "description": "Vacuum extrac del aff NB"
+    },
+    {
+      "id": 100,
+      "name": "Sub-Ex",
+      "price": 35,
+      "category": "Documentary",
+      "description": "Dislocation NEC-open"
+    }
+  ]
 }
