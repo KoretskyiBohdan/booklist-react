@@ -2,8 +2,16 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { RootState } from '.';
 
+type BookType = {
+  id: number;
+  name: string;
+  price: number;
+  category: string;
+  description: string;
+};
+
 type StateType = {
-  data: unknown[];
+  data: BookType[];
   isLoading: boolean;
   error: null | string;
 };
@@ -14,12 +22,23 @@ const initialState: StateType = {
   error: null,
 };
 
-export const fetchBooks = createAsyncThunk('books/fetch', async () => {
-  const { data } = await axios({
-    url: `${process.env.REACT_APP_API_URL}/books`,
-  });
-  return data;
-});
+interface IFetchBooks {
+  page: number;
+}
+
+export const fetchBooks = createAsyncThunk(
+  'books/fetch',
+  async ({ page }: IFetchBooks) => {
+    const { data } = await axios<BookType[]>({
+      url: `${process.env.REACT_APP_API_URL}/books`,
+      params: {
+        _page: page,
+        _limit: 10,
+      },
+    });
+    return data;
+  }
+);
 
 const booksSlice = createSlice({
   name: 'books',
