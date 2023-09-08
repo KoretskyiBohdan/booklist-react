@@ -1,8 +1,9 @@
 import css from './form.module.scss';
 
 export interface InputProps {
-  label: string;
+  label?: string;
   name: string;
+  defaultValue?: string | number;
   type?: string;
   invalid?: boolean;
   placaholder?: string;
@@ -11,8 +12,9 @@ export interface InputProps {
 
 export const Input: React.FC<InputProps> = ({
   label,
-  type = 'text',
   name,
+  defaultValue = '',
+  type = 'text',
   invalid = false,
   required = false,
 }) => {
@@ -24,6 +26,7 @@ export const Input: React.FC<InputProps> = ({
       {required && <span className={css.required}>*</span>}
       <input
         className={`${css.inputField} ${invalid ? 'invalid' : ''}`}
+        defaultValue={defaultValue}
         type={type}
         id={name}
         name={name}

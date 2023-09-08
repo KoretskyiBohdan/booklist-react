@@ -44,3 +44,16 @@ export const addNewBook = createAsyncThunk<
 
   return data;
 });
+
+export const updateBook = createAsyncThunk<BookType, BookType>(
+  'books/update',
+  async (payload) => {
+    const { data } = await axios<BookType>({
+      method: 'put',
+      url: `${process.env.REACT_APP_API_URL}/books/${payload.id}`,
+      data: payload,
+    });
+
+    return data;
+  }
+);

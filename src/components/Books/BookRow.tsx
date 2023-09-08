@@ -11,13 +11,18 @@ interface BookRowProps {
 export const BookRow: React.FC<BookRowProps> = ({ book }) => {
   const { showEditModal } = useModal();
 
+  const onClickChange = useCallback(
+    () => showEditModal(book),
+    [book, showEditModal]
+  );
+
   const onClickDelete = useCallback((event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     event.stopPropagation();
   }, []);
 
   return (
-    <tr className={css.bookRow} onClick={showEditModal} key={book.id}>
+    <tr className={css.bookRow} onClick={onClickChange} key={book.id}>
       <td>{book.name}</td>
       <td>${book.price}</td>
       <td>{book.category}</td>

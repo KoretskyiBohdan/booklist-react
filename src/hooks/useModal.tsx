@@ -2,7 +2,9 @@ import { useContext, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { ModalContext } from 'components/Modal/ModalContext';
 import Form from 'components/Form';
-import { addNewBook } from 'store/books';
+import { addNewBook, updateBook } from 'store/books';
+import { BookType } from 'apiTypes';
+import { formValuesToBookData } from 'utils';
 
 export const useModal = () => {
   const dispatch = useDispatch<any>();
@@ -10,13 +12,17 @@ export const useModal = () => {
 
   const onAddBook = useCallback(
     (data: Record<string, string>) => {
-      const book = {
-        name: data.name,
-        price: Number(data.price),
-        category: data.category,
-        description: data.description,
-      };
+      const book = formValuesToBookData(data);
       dispatch(addNewBook(book));
+      hide();
+    },
+    [dispatch, hide]
+  );
+
+  const onChangeBook = useCallback(
+    (data: Record<string, string>) => {
+      const book = formValuesToBookData(data) as BookType;
+      dispatch(updateBook(book));
       hide();
     },
     [dispatch, hide]
@@ -33,9 +39,41 @@ export const useModal = () => {
     );
   }, [onAddBook, show]);
 
-  const showEditModal = useCallback(() => {
-    show(<div>There will be edit Modal</div>);
-  }, [show]);
+  const showEditModal = useCallback(
+    (data: BookType) => {
+      show(
+        <Form title="Change" buttonText="Save" onSubmit={onChangeBook}>
+          <Form.Input name="id" type="hidden" defaultValue={data.id} />
+          <Form.Input
+            name="name"
+            label="Name:"
+            defaultValue={data.name}
+            required
+          />
+          <Form.Input
+            name="price"
+            label="Price:"
+            type="number"
+            defaultValue={data.price}
+            required
+          />
+          <Form.Input
+            name="category"
+            label="Category:"
+            defaultValue={data.category}
+            required
+          />
+          <Form.Input
+            name="description"
+            label="Description:"
+            defaultValue={data.description}
+            required
+          />
+        </Form>
+      );
+    },
+    [onChangeBook, show]
+  );
 
   return { showAddNewModal, showEditModal };
 };

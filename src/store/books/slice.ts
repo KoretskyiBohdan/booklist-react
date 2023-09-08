@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { BookType } from 'apiTypes';
-import { fetchNextPage, addNewBook } from './api';
+import { fetchNextPage, addNewBook, updateBook } from './api';
 
 type StateType = {
   data: BookType[];
@@ -43,6 +43,14 @@ const booksSlice = createSlice({
     builder.addCase(addNewBook.fulfilled, (state, action) => {
       if (state.hasMoreItemsToLoad) return;
       state.data = state.data.concat([action.payload]);
+    });
+
+    builder.addCase(updateBook.fulfilled, (state, action) => {
+      const index = state.data.findIndex(
+        (book) => book.id === action.payload.id
+      );
+
+      state.data[index] = action.payload;
     });
   },
 });
