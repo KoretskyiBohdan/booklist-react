@@ -14,7 +14,9 @@ $tableMinWidth: 800px;
   }
 
   &.tableOnUpdate {
-    opacity: 0.6;
+    tbody {
+      opacity: 0.6;
+    }
   }
 
   tr {

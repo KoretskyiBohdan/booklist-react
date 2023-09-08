@@ -27,6 +27,7 @@ const Books = () => {
   const isLoading = useSelector(selectIsLoading);
   const isOnUpdating = useSelector(selectIsOnUpdating);
   const showSkeleton = books.length === 0 && isLoading;
+  const showLoader = (isLoading || isOnUpdating) && !showSkeleton;
 
   const loadMoreBooks = useCallback(
     () => dispatch(fetchNextPage()),
@@ -83,7 +84,7 @@ const Books = () => {
         </table>
         {showSkeleton && <Skeleton />}
         <div className={css.loadMore}>
-          {hasMoreItemsToLoad && !isLoading && !isOnUpdating && (
+          {hasMoreItemsToLoad && !showLoader && (
             <Button
               type="primary"
               disabled={isOnUpdating}
@@ -92,7 +93,7 @@ const Books = () => {
               Load More
             </Button>
           )}
-          {isLoading && !showSkeleton && <Loader />}
+          {showLoader && <Loader />}
         </div>
       </div>
     </div>
