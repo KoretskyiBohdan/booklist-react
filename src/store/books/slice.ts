@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { BookType } from 'apiTypes';
 import { fetchNextPage, addNewBook, updateBook, refreshData } from './api';
 
@@ -6,14 +6,16 @@ type StateType = {
   data: BookType[];
   page: number;
   isLoading: boolean;
+  isOnUpdating: boolean;
   hasMoreItemsToLoad: boolean;
   error: null | string;
 };
 
 const initialState: StateType = {
   data: [],
-  page: 1,
+  page: 0,
   isLoading: false,
+  isOnUpdating: false,
   hasMoreItemsToLoad: true,
   error: null,
 };
@@ -22,8 +24,8 @@ const booksSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
-    incrementPage(state) {
-      state.page += 1;
+    setPage(state, action: PayloadAction<number>) {
+      state.page = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -51,11 +53,18 @@ const booksSlice = createSlice({
       state.data[index] = action.payload;
     });
 
+    builder.addCase(refreshData.pending, (state) => {
+      state.isOnUpdating = true;
+    });
     builder.addCase(refreshData.fulfilled, (state, action) => {
       state.data = action.payload;
+      state.isOnUpdating = false;
+    });
+    builder.addCase(refreshData.rejected, (state) => {
+      state.isOnUpdating = false;
     });
   },
 });
 
-export const { incrementPage } = booksSlice.actions;
+export const { setPage } = booksSlice.actions;
 export default booksSlice.reducer;

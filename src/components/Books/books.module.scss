@@ -13,6 +13,10 @@ $tableMinWidth: 800px;
     border-collapse: collapse;
   }
 
+  &.tableOnUpdate {
+    opacity: 0.6;
+  }
+
   tr {
     border-bottom: 1pt solid #141e46;
   }

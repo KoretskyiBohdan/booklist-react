@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import cn from 'classnames';
 import { BookType } from 'apiTypes';
 import { useOnMount } from 'hooks/useOnMount';
 import { useModal } from 'hooks/useModal';
@@ -9,6 +10,7 @@ import {
   selectBooks,
   selectHasMoreItemsToLoad,
   selectIsLoading,
+  selectIsOnUpdating,
 } from 'store/books';
 import Button from 'components/Button';
 import Loader from 'components/Loader';
@@ -23,6 +25,7 @@ const Books = () => {
   const books = useSelector(selectBooks);
   const hasMoreItemsToLoad = useSelector(selectHasMoreItemsToLoad);
   const isLoading = useSelector(selectIsLoading);
+  const isOnUpdating = useSelector(selectIsOnUpdating);
   const showSkeleton = books.length === 0 && isLoading;
 
   const loadMoreBooks = useCallback(
@@ -31,16 +34,17 @@ const Books = () => {
   );
 
   const onChange = useCallback(
-    (book: BookType) => showEditModal(book),
-    [showEditModal]
+    (book: BookType) => !isOnUpdating && showEditModal(book),
+    [isOnUpdating, showEditModal]
   );
 
   const onDelete = useCallback(
     (book: BookType) => {
+      if (isOnUpdating) return;
       serRemoved((s) => ({ ...s, [book.id]: true }));
       dispatch(deleteBook(book));
     },
-    [dispatch]
+    [dispatch, isOnUpdating]
   );
 
   useOnMount(loadMoreBooks);
@@ -48,14 +52,18 @@ const Books = () => {
   return (
     <div className={css.container}>
       <div>
-        <table className={css.table}>
+        <table className={cn(css.table, { [css.tableOnUpdate]: isOnUpdating })}>
           <thead>
             <tr>
               <th>Name</th>
               <th>Price</th>
               <th>Category</th>
               <th>
-                <Button type="primary" onClick={showAddNewModal}>
+                <Button
+                  type="primary"
+                  onClick={showAddNewModal}
+                  disabled={isOnUpdating}
+                >
                   Add Book
                 </Button>
               </th>
@@ -75,8 +83,12 @@ const Books = () => {
         </table>
         {showSkeleton && <Skeleton />}
         <div className={css.loadMore}>
-          {hasMoreItemsToLoad && !isLoading && (
-            <Button type="primary" onClick={loadMoreBooks}>
+          {hasMoreItemsToLoad && !isLoading && !isOnUpdating && (
+            <Button
+              type="primary"
+              disabled={isOnUpdating}
+              onClick={loadMoreBooks}
+            >
               Load More
             </Button>
           )}

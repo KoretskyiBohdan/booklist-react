@@ -3,7 +3,7 @@ import axios from 'axios';
 import { RootState } from 'store';
 import { BookType } from 'apiTypes';
 import { selectHasMoreItemsToLoad, selectPage } from './selectors';
-import { incrementPage } from './slice';
+import { setPage } from './slice';
 
 const API_LIMIT = 10;
 
@@ -12,7 +12,8 @@ export const fetchNextPage = createAsyncThunk<
   void,
   { state: RootState }
 >('books/fetch', async (_, { getState, dispatch }) => {
-  const page = selectPage(getState());
+  // todo: comment
+  const page = selectPage(getState()) + 1;
   const hasMoreItemsToLoad = selectHasMoreItemsToLoad(getState());
 
   if (!hasMoreItemsToLoad) return [];
@@ -26,7 +27,7 @@ export const fetchNextPage = createAsyncThunk<
     },
   });
 
-  dispatch(incrementPage());
+  dispatch(setPage(page));
 
   return data;
 });
@@ -39,7 +40,7 @@ export const refreshData = createAsyncThunk<
   const page = selectPage(getState());
   const result: BookType[] = [];
 
-  for (let curr = 1; curr !== page; curr++) {
+  for (let curr = 1; curr <= page; curr++) {
     const { data } = await axios<BookType[]>({
       method: 'get',
       url: `${process.env.REACT_APP_API_URL}/books`,
