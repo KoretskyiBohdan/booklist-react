@@ -33,6 +33,10 @@
   &:hover {
     background-color: #d9d9d947;
   }
+
+  &:global(.isRemoved) {
+    opacity: 0.5;
+  }
 }
 
 .loadMore {

@@ -1,4 +1,4 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk, Dispatch } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { RootState } from 'store';
 import { BookType } from 'apiTypes';
@@ -31,6 +31,29 @@ export const fetchNextPage = createAsyncThunk<
   return data;
 });
 
+export const refreshData = createAsyncThunk<
+  BookType[],
+  void,
+  { state: RootState }
+>('books/refresh', async (_, { getState }) => {
+  const page = selectPage(getState());
+  const result: BookType[] = [];
+
+  for (let curr = 1; curr !== page; curr++) {
+    const { data } = await axios<BookType[]>({
+      method: 'get',
+      url: `${process.env.REACT_APP_API_URL}/books`,
+      params: {
+        _page: curr,
+        _limit: API_LIMIT,
+      },
+    });
+    result.push(...data);
+  }
+
+  return result;
+});
+
 export const addNewBook = createAsyncThunk<
   BookType,
   Omit<BookType, 'id'>,
@@ -57,3 +80,17 @@ export const updateBook = createAsyncThunk<BookType, BookType>(
     return data;
   }
 );
+
+export const deleteBook = createAsyncThunk<
+  void,
+  BookType,
+  { dispatch: Dispatch<any> }
+>('books/delete', async (payload, { dispatch }) => {
+  await axios<BookType>({
+    method: 'delete',
+    url: `${process.env.REACT_APP_API_URL}/books/${payload.id}`,
+    data: payload,
+  });
+
+  dispatch(refreshData());
+});

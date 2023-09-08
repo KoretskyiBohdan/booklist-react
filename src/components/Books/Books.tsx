@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useOnMount } from 'hooks/useOnMount';
 import { useModal } from 'hooks/useModal';
 import {
+  deleteBook,
   fetchNextPage,
   selectBooks,
   selectHasMoreItemsToLoad,
@@ -10,15 +11,26 @@ import {
 import BookRow from './BookRow';
 import Button from 'components/Button';
 import css from './books.module.scss';
+import { BookType } from 'apiTypes';
 
 const Books = () => {
   const dispatch = useDispatch<any>();
-  const { showAddNewModal } = useModal();
+  const { showAddNewModal, showEditModal } = useModal();
   const books = useSelector(selectBooks);
   const hasMoreItemsToLoad = useSelector(selectHasMoreItemsToLoad);
 
   const loadMoreBooks = useCallback(
     () => dispatch(fetchNextPage()),
+    [dispatch]
+  );
+
+  const onChange = useCallback(
+    (book: BookType) => showEditModal(book),
+    [showEditModal]
+  );
+
+  const onDelete = useCallback(
+    (book: BookType) => dispatch(deleteBook(book)),
     [dispatch]
   );
 
@@ -42,7 +54,12 @@ const Books = () => {
           </thead>
           <tbody>
             {books.map((book) => (
-              <BookRow key={book.id} book={book} />
+              <BookRow
+                key={book.id}
+                book={book}
+                onChange={onChange}
+                onDelete={onDelete}
+              />
             ))}
           </tbody>
         </table>
