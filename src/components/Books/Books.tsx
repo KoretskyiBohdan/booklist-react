@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { BookType } from 'apiTypes';
 import { useOnMount } from 'hooks/useOnMount';
 import { useModal } from 'hooks/useModal';
 import {
@@ -7,18 +8,22 @@ import {
   fetchNextPage,
   selectBooks,
   selectHasMoreItemsToLoad,
+  selectIsLoading,
 } from 'store/books';
-import BookRow from './BookRow';
 import Button from 'components/Button';
+import Loader from 'components/Loader';
+import Skeleton from './Skeleton';
+import BookRow from './BookRow';
 import css from './books.module.scss';
-import { BookType } from 'apiTypes';
 
 const Books = () => {
-  const [removed, serRemoved] = useState<Record<string, boolean>>({});
   const dispatch = useDispatch<any>();
   const { showAddNewModal, showEditModal } = useModal();
+  const [removed, serRemoved] = useState<Record<string, boolean>>({});
   const books = useSelector(selectBooks);
   const hasMoreItemsToLoad = useSelector(selectHasMoreItemsToLoad);
+  const isLoading = useSelector(selectIsLoading);
+  const showSkeleton = books.length === 0 && isLoading;
 
   const loadMoreBooks = useCallback(
     () => dispatch(fetchNextPage()),
@@ -68,12 +73,14 @@ const Books = () => {
             ))}
           </tbody>
         </table>
+        {showSkeleton && <Skeleton />}
         <div className={css.loadMore}>
-          {hasMoreItemsToLoad && (
+          {hasMoreItemsToLoad && !isLoading && (
             <Button type="primary" onClick={loadMoreBooks}>
               Load More
             </Button>
           )}
+          {isLoading && !showSkeleton && <Loader />}
         </div>
       </div>
     </div>

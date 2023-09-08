@@ -2,8 +2,6 @@ import { MouseEvent } from 'react';
 import cn from 'classnames';
 import css from './button.module.scss';
 
-console.log(css);
-
 interface ButtonProps {
   type: 'primary' | 'secondary';
   disabled?: boolean;
