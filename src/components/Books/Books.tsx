@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useOnMount } from 'hooks/useOnMount';
-import { useAddBookModal } from 'hooks/useAddBookModal';
+import { useModal } from 'hooks/useModal';
 import {
   fetchNextPage,
   selectBooks,
@@ -13,7 +13,7 @@ import css from './books.module.scss';
 
 const Books = () => {
   const dispatch = useDispatch<any>();
-  const { showModal } = useAddBookModal();
+  const { showAddNewModal } = useModal();
   const books = useSelector(selectBooks);
   const hasMoreItemsToLoad = useSelector(selectHasMoreItemsToLoad);
 
@@ -34,7 +34,7 @@ const Books = () => {
               <th>Price</th>
               <th>Category</th>
               <th>
-                <Button type="primary" onClick={showModal}>
+                <Button type="primary" onClick={showAddNewModal}>
                   Add Book
                 </Button>
               </th>

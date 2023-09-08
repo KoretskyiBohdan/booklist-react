@@ -1,8 +1,9 @@
+import { MouseEvent } from 'react';
 import css from './button.module.scss';
 
 interface ButtonProps {
   type: 'primary' | 'secondary';
-  onClick?: () => void;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
 }
 

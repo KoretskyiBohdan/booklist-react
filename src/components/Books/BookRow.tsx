@@ -1,18 +1,28 @@
+import { MouseEvent, useCallback } from 'react';
 import { BookType } from 'apiTypes';
 import Button from 'components/Button';
+import { useModal } from 'hooks/useModal';
+import css from './books.module.scss';
 
 interface BookRowProps {
   book: BookType;
 }
 
 export const BookRow: React.FC<BookRowProps> = ({ book }) => {
+  const { showEditModal } = useModal();
+
+  const onClickDelete = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+  }, []);
+
   return (
-    <tr key={book.id}>
+    <tr className={css.bookRow} onClick={showEditModal} key={book.id}>
       <td>{book.name}</td>
       <td>${book.price}</td>
       <td>{book.category}</td>
       <td>
-        <Button type="secondary" onClick={() => console.log('delete')}>
+        <Button type="secondary" onClick={onClickDelete}>
           Delete
         </Button>
       </td>
