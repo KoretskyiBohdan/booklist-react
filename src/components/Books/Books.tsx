@@ -6,6 +6,8 @@ import {
   selectBooks,
   selectHasMoreItemsToLoad,
 } from 'store/books';
+import BookRow from './BookRow';
+import css from './books.module.scss';
 
 const Books = () => {
   const dispatch = useDispatch<any>();
@@ -17,37 +19,42 @@ const Books = () => {
     [dispatch]
   );
 
+  const addBook = useCallback(() => {
+    console.log('add book');
+  }, []);
+
   useOnMount(loadMoreBooks);
 
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Category</th>
-            <th>
-              <button onClick={() => console.log('add book')}>Add book</button>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {books.map((book) => {
-            return (
-              <tr key={book.id}>
-                <td>{book.name}</td>
-                <td>{book.name}</td>
-                <td>{book.category}</td>
-                <td>
-                  <button>Delete</button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      {hasMoreItemsToLoad && <button onClick={loadMoreBooks}>Load more</button>}
+    <div className={css.container}>
+      <div>
+        <table className={css.table}>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>
+                <button className={css.buttonPrimary} onClick={addBook}>
+                  Add book
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {books.map((book) => (
+              <BookRow key={book.id} book={book} />
+            ))}
+          </tbody>
+        </table>
+        <div className={css.loadMore}>
+          {hasMoreItemsToLoad && (
+            <button className={css.buttonPrimary} onClick={loadMoreBooks}>
+              Load more
+            </button>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

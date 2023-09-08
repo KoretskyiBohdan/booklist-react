@@ -1,0 +1,53 @@
+$primary: #141e46;
+$danger: #bb2525;
+
+.container {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.table {
+  & {
+    border-collapse: collapse;
+  }
+
+  tr {
+    border-bottom: 1pt solid $primary;
+  }
+
+  td,
+  th {
+    min-width: 160px;
+    text-align: left;
+    padding: 10px 10px;
+  }
+
+  td:last-child,
+  th:last-child {
+    text-align: right;
+  }
+}
+
+.buttonPrimary {
+  border: 1px solid $primary;
+
+  &:hover {
+    background-color: $primary;
+  }
+}
+
+.buttonDanger {
+  border: 1px solid $danger;
+
+  &:hover {
+    background-color: $danger;
+  }
+}
+
+.loadMore {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+}
