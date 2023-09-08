@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useOnMount } from 'hooks/useOnMount';
+import { useModal } from 'hooks/useModal';
 import {
   fetchNextPage,
   selectBooks,
@@ -11,6 +12,7 @@ import css from './books.module.scss';
 
 const Books = () => {
   const dispatch = useDispatch<any>();
+  const modal = useModal();
   const books = useSelector(selectBooks);
   const hasMoreItemsToLoad = useSelector(selectHasMoreItemsToLoad);
 
@@ -20,8 +22,8 @@ const Books = () => {
   );
 
   const addBook = useCallback(() => {
-    console.log('add book');
-  }, []);
+    modal.show(<div>Hi from modal</div>);
+  }, [modal]);
 
   useOnMount(loadMoreBooks);
 

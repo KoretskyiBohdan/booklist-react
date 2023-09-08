@@ -1,9 +1,12 @@
+import { ModalProvider } from 'components/Modal';
 import Books from 'components/Books';
 
 function App() {
   return (
     <div className="App">
-      <Books></Books>
+      <ModalProvider>
+        <Books />
+      </ModalProvider>
     </div>
   );
 }
