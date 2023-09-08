@@ -6,7 +6,7 @@ button {
   background-color: white;
   padding: 10px 15px;
   transition: linear 0.2s background-color;
-  border-radius: 5px;
+  border-radius: 3px;
   font-size: 14px;
 
   &:hover {
@@ -20,6 +20,7 @@ button {
 
 .primary {
   border: 1px solid $primary;
+  color: $primary;
 
   &:hover {
     background-color: $primary;
@@ -28,6 +29,7 @@ button {
 
 .secondary {
   border: 1px solid $secondary;
+  color: $secondary;
 
   &:hover {
     background-color: $secondary;

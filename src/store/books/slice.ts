@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { BookType } from 'apiTypes';
-import { fetchNextPage } from './api';
+import { fetchNextPage, addNewBook } from './api';
 
 type StateType = {
   data: BookType[];
@@ -38,6 +38,11 @@ const booksSlice = createSlice({
     builder.addCase(fetchNextPage.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.error.message || null;
+    });
+
+    builder.addCase(addNewBook.fulfilled, (state, action) => {
+      if (state.hasMoreItemsToLoad) return;
+      state.data = state.data.concat([action.payload]);
     });
   },
 });

@@ -1,0 +1,34 @@
+.form {
+  margin: 15px 0px;
+}
+
+.inputWrapper {
+  padding: 10px 0px;
+}
+
+.label {
+  font-size: 18px;
+}
+
+.inputField {
+  margin-top: 5px;
+  height: 30px;
+  font-size: 18px;
+  width: 100%;
+  border-radius: 5px;
+  border-color: #141e46;
+  outline-color: #141e46;
+
+  &:global(.invalid) {
+    border-color: #bb2525;
+    outline-color: #bb2525;
+  }
+}
+
+.required {
+  color: rgb(255, 0, 0);
+}
+
+.submit {
+  text-align: center;
+}

@@ -18,6 +18,7 @@ export const fetchNextPage = createAsyncThunk<
   if (!hasMoreItemsToLoad) return [];
 
   const { data } = await axios<BookType[]>({
+    method: 'get',
     url: `${process.env.REACT_APP_API_URL}/books`,
     params: {
       _page: page,
@@ -26,6 +27,20 @@ export const fetchNextPage = createAsyncThunk<
   });
 
   dispatch(incrementPage());
+
+  return data;
+});
+
+export const addNewBook = createAsyncThunk<
+  BookType,
+  Omit<BookType, 'id'>,
+  { state: RootState }
+>('books/add', async (payload) => {
+  const { data } = await axios<BookType>({
+    method: 'post',
+    url: `${process.env.REACT_APP_API_URL}/books`,
+    data: payload,
+  });
 
   return data;
 });

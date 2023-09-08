@@ -24,7 +24,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, hide, content }) => {
         <span className={css.closeButton} onClick={hide}>
           &times;
         </span>
-        <div className={css.innerContent}>{content}</div>
+        <div>{content}</div>
       </div>
     </div>
   );
