@@ -1,5 +1,5 @@
 import { BookType } from 'apiTypes';
-import css from './books.module.scss';
+import Button from 'components/Button';
 
 interface BookRowProps {
   book: BookType;
@@ -12,7 +12,9 @@ export const BookRow: React.FC<BookRowProps> = ({ book }) => {
       <td>${book.price}</td>
       <td>{book.category}</td>
       <td>
-        <button className={css.buttonDanger}>Delete</button>
+        <Button type="secondary" onClick={() => console.log('delete')}>
+          Delete
+        </Button>
       </td>
     </tr>
   );

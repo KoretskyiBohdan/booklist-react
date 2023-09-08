@@ -1,18 +1,19 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useOnMount } from 'hooks/useOnMount';
-import { useModal } from 'hooks/useModal';
+import { useAddBookModal } from 'hooks/useAddBookModal';
 import {
   fetchNextPage,
   selectBooks,
   selectHasMoreItemsToLoad,
 } from 'store/books';
 import BookRow from './BookRow';
+import Button from 'components/Button';
 import css from './books.module.scss';
 
 const Books = () => {
   const dispatch = useDispatch<any>();
-  const modal = useModal();
+  const { showModal } = useAddBookModal();
   const books = useSelector(selectBooks);
   const hasMoreItemsToLoad = useSelector(selectHasMoreItemsToLoad);
 
@@ -20,10 +21,6 @@ const Books = () => {
     () => dispatch(fetchNextPage()),
     [dispatch]
   );
-
-  const addBook = useCallback(() => {
-    modal.show(<div>Hi from modal</div>);
-  }, [modal]);
 
   useOnMount(loadMoreBooks);
 
@@ -37,9 +34,9 @@ const Books = () => {
               <th>Price</th>
               <th>Category</th>
               <th>
-                <button className={css.buttonPrimary} onClick={addBook}>
-                  Add book
-                </button>
+                <Button type="primary" onClick={showModal}>
+                  Add Book
+                </Button>
               </th>
             </tr>
           </thead>
@@ -51,9 +48,9 @@ const Books = () => {
         </table>
         <div className={css.loadMore}>
           {hasMoreItemsToLoad && (
-            <button className={css.buttonPrimary} onClick={loadMoreBooks}>
-              Load more
-            </button>
+            <Button type="primary" onClick={loadMoreBooks}>
+              Load More
+            </Button>
           )}
         </div>
       </div>

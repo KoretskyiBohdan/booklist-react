@@ -1,4 +1,4 @@
-import { MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
+import { MouseEvent, useCallback, useRef } from 'react';
 import css from './modal.module.scss';
 
 export interface ModalProps {
@@ -9,7 +9,6 @@ export interface ModalProps {
 
 export const Modal: React.FC<ModalProps> = ({ isOpen, hide, content }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [contentClasses, setContentClasses] = useState([css.content]);
   const containerClassName = [css.modal, isOpen ? css.open : ''].join(' ');
 
   const onClick = useCallback(
@@ -19,13 +18,9 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, hide, content }) => {
     [hide]
   );
 
-  useEffect(() => {
-    setContentClasses((state) => state.concat([css.contentAnimation]));
-  }, []);
-
   return (
     <div ref={containerRef} onClick={onClick} className={containerClassName}>
-      <div className={contentClasses.join(' ')}>
+      <div className={css.content}>
         <span className={css.closeButton} onClick={hide}>
           &times;
         </span>

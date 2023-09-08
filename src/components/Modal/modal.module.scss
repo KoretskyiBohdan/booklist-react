@@ -19,7 +19,7 @@
 .content {
   position: relative;
   position: absolute;
-  top: -100%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fefefe;
@@ -28,10 +28,6 @@
   border: 1px solid #888;
   width: 50%;
   transition: 0.2s ease top;
-}
-
-.contentAnimation {
-  top: 50%;
 }
 
 .innerContent {

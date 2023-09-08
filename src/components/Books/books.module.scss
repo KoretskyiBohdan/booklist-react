@@ -1,6 +1,3 @@
-$primary: #141e46;
-$danger: #bb2525;
-
 .container {
   font-family: sans-serif;
   display: flex;
@@ -14,7 +11,7 @@ $danger: #bb2525;
   }
 
   tr {
-    border-bottom: 1pt solid $primary;
+    border-bottom: 1pt solid #141e46;
   }
 
   td,
@@ -27,22 +24,6 @@ $danger: #bb2525;
   td:last-child,
   th:last-child {
     text-align: right;
-  }
-}
-
-.buttonPrimary {
-  border: 1px solid $primary;
-
-  &:hover {
-    background-color: $primary;
-  }
-}
-
-.buttonDanger {
-  border: 1px solid $danger;
-
-  &:hover {
-    background-color: $danger;
   }
 }
 

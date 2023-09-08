@@ -1,0 +1,35 @@
+$primary: #141e46;
+$secondary: #bb2525;
+
+button {
+  cursor: pointer;
+  background-color: white;
+  padding: 10px 15px;
+  transition: linear 0.2s background-color;
+  border-radius: 5px;
+  font-size: 14px;
+
+  &:hover {
+    color: white;
+  }
+
+  &:active {
+    transform: scale(1.1, 1.1);
+  }
+}
+
+.primary {
+  border: 1px solid $primary;
+
+  &:hover {
+    background-color: $primary;
+  }
+}
+
+.secondary {
+  border: 1px solid $secondary;
+
+  &:hover {
+    background-color: $secondary;
+  }
+}
