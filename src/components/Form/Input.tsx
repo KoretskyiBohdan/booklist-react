@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import css from './form.module.scss';
 
 export interface InputProps {
@@ -25,7 +26,7 @@ export const Input: React.FC<InputProps> = ({
       </label>
       {required && <span className={css.required}>*</span>}
       <input
-        className={`${css.inputField} ${invalid ? 'invalid' : ''}`}
+        className={cn(css.inputField, { invalid })}
         defaultValue={defaultValue}
         type={type}
         id={name}

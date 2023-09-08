@@ -1,4 +1,5 @@
 import { MouseEvent, useCallback, useRef } from 'react';
+import cn from 'classnames';
 import css from './modal.module.scss';
 
 export interface ModalProps {
@@ -9,7 +10,6 @@ export interface ModalProps {
 
 export const Modal: React.FC<ModalProps> = ({ isOpen, hide, content }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const containerClassName = [css.modal, isOpen ? css.open : ''].join(' ');
 
   const onClick = useCallback(
     (event: MouseEvent<HTMLDivElement>) => {
@@ -19,7 +19,11 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, hide, content }) => {
   );
 
   return (
-    <div ref={containerRef} onClick={onClick} className={containerClassName}>
+    <div
+      ref={containerRef}
+      onClick={onClick}
+      className={cn(css.modal, { [css.open]: isOpen })}
+    >
       <div className={css.content}>
         <span className={css.closeButton} onClick={hide}>
           &times;

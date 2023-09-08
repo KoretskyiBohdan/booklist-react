@@ -1,20 +1,22 @@
 import { MouseEvent, useCallback } from 'react';
+import cn from 'classnames';
 import { BookType } from 'apiTypes';
 import Button from 'components/Button';
 import css from './books.module.scss';
 
 interface BookRowProps {
   book: BookType;
+  isRemoved?: boolean;
   onChange: (book: BookType) => void;
   onDelete: (book: BookType) => void;
 }
 
 export const BookRow: React.FC<BookRowProps> = ({
   book,
+  isRemoved = false,
   onChange,
   onDelete,
 }) => {
-  const isRemoved = false;
   const onClickDelete = useCallback(
     (event: MouseEvent<HTMLButtonElement>) => {
       event.stopPropagation();
@@ -25,15 +27,15 @@ export const BookRow: React.FC<BookRowProps> = ({
 
   return (
     <tr
-      className={`${css.bookRow} ${isRemoved ? 'isRemoved' : ''}`}
-      onClick={() => onChange(book)}
+      className={cn(css.bookRow, { isRemoved })}
+      onClick={() => !isRemoved && onChange(book)}
       key={book.id}
     >
       <td>{book.name}</td>
       <td>${book.price}</td>
       <td>{book.category}</td>
       <td>
-        <Button type="secondary" onClick={onClickDelete}>
+        <Button type="secondary" onClick={onClickDelete} disabled={isRemoved}>
           Delete
         </Button>
       </td>

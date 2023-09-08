@@ -16,6 +16,10 @@ button {
   &:active {
     transform: scale(1.1, 1.1);
   }
+
+  &:disabled {
+    transform: none;
+  }
 }
 
 .primary {

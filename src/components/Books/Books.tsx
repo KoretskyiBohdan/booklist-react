@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useOnMount } from 'hooks/useOnMount';
 import { useModal } from 'hooks/useModal';
@@ -14,6 +14,7 @@ import css from './books.module.scss';
 import { BookType } from 'apiTypes';
 
 const Books = () => {
+  const [removed, serRemoved] = useState<Record<string, boolean>>({});
   const dispatch = useDispatch<any>();
   const { showAddNewModal, showEditModal } = useModal();
   const books = useSelector(selectBooks);
@@ -30,7 +31,10 @@ const Books = () => {
   );
 
   const onDelete = useCallback(
-    (book: BookType) => dispatch(deleteBook(book)),
+    (book: BookType) => {
+      serRemoved((s) => ({ ...s, [book.id]: true }));
+      dispatch(deleteBook(book));
+    },
     [dispatch]
   );
 
@@ -57,6 +61,7 @@ const Books = () => {
               <BookRow
                 key={book.id}
                 book={book}
+                isRemoved={removed[book.id]}
                 onChange={onChange}
                 onDelete={onDelete}
               />

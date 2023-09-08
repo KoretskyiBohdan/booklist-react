@@ -1,16 +1,31 @@
 import { MouseEvent } from 'react';
+import cn from 'classnames';
 import css from './button.module.scss';
+
+console.log(css);
 
 interface ButtonProps {
   type: 'primary' | 'secondary';
+  disabled?: boolean;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
 }
 
-export const Button: React.FC<ButtonProps> = ({ type, onClick, children }) => {
-  const className = type === 'primary' ? css.primary : css.secondary;
+export const Button: React.FC<ButtonProps> = ({
+  type,
+  disabled,
+  onClick,
+  children,
+}) => {
   return (
-    <button className={className} onClick={onClick}>
+    <button
+      className={cn({
+        [css.primary]: type === 'primary',
+        [css.secondary]: type === 'secondary',
+      })}
+      disabled={disabled}
+      onClick={onClick}
+    >
       {children}
     </button>
   );
